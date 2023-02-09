@@ -10,9 +10,10 @@ namespace HopfieldSample
     {
         static void Main(string[] args)
         {
-            int[] patrn1 = { 0, 0, 0, 1, 1, 1, 0, 0, 0 };
-            //int[] patrn1 = { 0, 1, 0, 1, 1, 1, 0, 1, 0 }; // plus
-            //int[] patrn1 = { 0, 1, 0, 1, 1, 1, 1, 1, 1 }; // tank
+            int[] patrn1 = { -1, -1, -1, 1, 1, 1, -1, -1, -1 }; // minus
+            //int[] patrn1 = { -1, -1, -1, -1, -1, -1, 1, 1, 1 }; // minus 3rd row
+            //int[] patrn1 = { -1, 1, -1, 1, 1, 1, -1, 1, -1 }; // plus
+            //int[] patrn1 = { -1, 1, -1, 1, 1, 1, 1, 1, 1 }; // tank
 
             int[] wt1 = { 0, 0, 2, -2, -2, -2, 2, 0, 2 };
             int[] wt2 = { 0, 0, 0, 0, 0, 0, 0, 2, 0 };
