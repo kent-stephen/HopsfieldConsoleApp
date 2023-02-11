@@ -10,6 +10,7 @@ namespace HopfieldSample
     {
         private Neuron[] nrn = new Neuron[9];
         public int[] output = new int[9];
+        private int[] testOutput = new int[9];
 
         public Network(int[] a, int[] b, int[] c, int[] d, int[] f, int[] j, int[] k, int[] l, int[] m)
         {
@@ -26,17 +27,27 @@ namespace HopfieldSample
 
         public void Activation(int[] patrn)
         {
-            for (int i = 0; i < 9; i++)
+            var isDone = false;
+            while (!isDone)
             {
-                for (int j = 0; j < 9; j++)
+                for (int i = 0; i < 9; i++)
                 {
-                    Console.WriteLine("\n nrn[" + i + "].weightv[" + j + "] is " + nrn[i].weightv[j]);
+                    nrn[i].activation = nrn[i].Act(9, patrn);
+                    //Console.WriteLine("\nactivation is " + nrn[i].activation);
+                    testOutput[i] = Threshold(nrn[i].activation);
+                    //Console.WriteLine("\noutput value is " + testOutput[i] + "\n");
                 }
 
-                nrn[i].activation = nrn[i].Act(9, patrn);
-                Console.WriteLine("\nactivation is " + nrn[i].activation);
-                output[i] = Threshold(nrn[i].activation);
-                Console.WriteLine("\noutput value is " + output[i] + "\n");
+                if (output.SequenceEqual(testOutput))
+                {
+                    isDone = true;
+                    Console.WriteLine("GOods");
+                }
+                else
+                {
+                    Array.Copy(testOutput, output, testOutput.Length);
+                    Console.WriteLine(1);
+                }
             }
         }
 

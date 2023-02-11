@@ -33,6 +33,8 @@ namespace HopfieldSample
                 a += x[i] * weightv[i];
             }
 
+            Console.WriteLine(a);
+
             return a;
         }
     }
